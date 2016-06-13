@@ -42,15 +42,17 @@ class World
     live_neighbours
   end
 
-  def get_cell_status
-    if get_live_neighbours.count < 2
-      @status = :dead
+  def set_cell_status(cell_position)
+    current_cell = @grid[cell_position]
+    live_neighbours = get_live_neighbours(cell_position)
+
+    if current_cell.status == :alive
+      if live_neighbours.count < 2
+        current_cell.switch_status
+      end
     end
+
   end
 
 end
-
-
-world = World.new
-grid = world.grid
 

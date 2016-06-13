@@ -3,7 +3,7 @@ require 'world.rb'
 
 describe 'World'  do
 
-  describe '#get_cell_status' do
+  describe '#set_cell_status' do
 
     context 'when the cell is alive' do
       let(:cell) { Cell.new(:alive) }
