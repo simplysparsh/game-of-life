@@ -1,19 +1,19 @@
 class Cell
 
-  def initialize(status = :dead)
+  attr_reader :status, :position
+
+  def initialize(position, status = :dead)
     @status = status
+    @position = position
   end
 
-  def get_live_neighbours
-    []
-  end
-
-  def get_status
-    if get_live_neighbours.count < 2
+  def switch_status
+    if @status == :dead
+      @status = :alive
+    else
       @status = :dead
     end
   end
-
 
 end
 

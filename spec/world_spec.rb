@@ -1,9 +1,9 @@
 require 'rspec'
-require 'cell.rb'
+require 'world.rb'
 
-describe 'Cell'  do
+describe 'World'  do
 
-  describe '#get_status' do
+  describe '#get_cell_status' do
 
     context 'when the cell is alive' do
       let(:cell) { Cell.new(:alive) }
@@ -13,8 +13,6 @@ describe 'Cell'  do
       end
 
       it 'dies if it has more than three live neighbours'
-
-
       it 'continues to live if it has two or three live neighbours'
     end
 
@@ -23,5 +21,6 @@ describe 'Cell'  do
     end
 
   end
-  
+
+
 end
