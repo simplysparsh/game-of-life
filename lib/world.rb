@@ -35,7 +35,7 @@ class World
     live_neighbours = []
 
     neighbours.each do |neighbour_cell|
-      if neighbour_cell.status == :alive
+      if neighbour_cell.is_alive?
         live_neighbours << neighbour_cell
       end
     end
@@ -46,7 +46,7 @@ class World
     current_cell = @grid[cell_position]
     live_neighbours = get_live_neighbours(cell_position)
 
-    if current_cell.status == :alive
+    if current_cell.is_alive?
       if live_neighbours.count < 2
         current_cell.switch_status
       end

@@ -15,5 +15,9 @@ class Cell
     end
   end
 
+  def is_alive?
+    @status == :alive
+  end
+
 end
 
