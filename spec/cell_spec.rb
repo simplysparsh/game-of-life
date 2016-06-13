@@ -6,7 +6,7 @@ describe 'Cell'  do
   describe '#get_status' do
 
     context 'when the cell is alive' do
-      cell = Cell.new(:alive)
+      let(:cell) { Cell.new(:alive) }
 
       it 'dies if it has less than two live neighbours' do
         expect(cell.get_status).to eq(:dead)
@@ -23,5 +23,5 @@ describe 'Cell'  do
     end
 
   end
-
+  
 end
