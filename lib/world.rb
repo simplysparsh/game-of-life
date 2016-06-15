@@ -5,42 +5,7 @@ class World
   attr_reader :grid
 
   def initialize
-    @grid = create_cells
-  end
-
-  private
-
-  def create_cells # 10 x 10 grid
-    cells = []
-    position = 0
-    100.times do
-      cells << Cell.new(position)
-      position = position + 1
-    end
-    cells
-  end
-
-
-  def get_neighbours(cell)
-
-    neighbours = [(cell.position - 10), (cell.position + 10), # vertical
-                  (cell.position -  1), (cell.position +  1), # horizontal
-                  (cell.position - 11), (cell.position + 11), # left diagonal
-                  (cell.position -  9), (cell.position +  9)] # right diagonal
-    neighbours
-  end
-
-  def get_live_neighbours(cell)
-    live_neighbours = []
-    neighbours = get_neighbours(cell)
-
-    neighbours.each do |neighbour_cell|
-      if neighbour_cell.is_alive?
-        live_neighbours << neighbour_cell
-      end
-    end
-
-    live_neighbours
+    @grid = create_cells # 10 x 10 grid
   end
 
   def set_cell_status(cell)
@@ -52,6 +17,39 @@ class World
       end
     end
 
+  end
+
+  private
+
+  def get_live_neighbours(cell)
+    live_neighbours = []
+    neighbour_positions = get_neighbour_positions(cell)
+
+    neighbour_positions.each do |neighbour_position|
+      neighbour_cell = @grid[neighbour_position]
+      live_neighbours << neighbour_cell if neighbour_cell.is_alive?
+    end
+
+    live_neighbours
+  end
+
+  def get_neighbour_positions(cell)
+
+    neighbour_positions = [(cell.position - 10), (cell.position + 10), # vertical
+                           (cell.position -  1), (cell.position +  1), # horizontal
+                           (cell.position - 11), (cell.position + 11), # left diagonal
+                           (cell.position -  9), (cell.position +  9)] # right diagonal
+    neighbour_positions
+  end
+
+  def create_cells
+    cells = []
+    position = 0
+    100.times do
+      cells << Cell.new(position)
+      position = position + 1
+    end
+    cells
   end
 
 end
