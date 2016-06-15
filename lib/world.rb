@@ -21,34 +21,34 @@ class World
   end
 
 
-  def get_neighbours(cell_position)
+  def get_neighbours(cell)
 
-    neighbours = [(cell_position - 10), (cell_position + 10), # vertical
-                  (cell_position -  1), (cell_position +  1), # horizontal
-                  (cell_position - 11), (cell_position + 11), # left diagonal
-                  (cell_position -  9), (cell_position +  9)] # right diagonal
+    neighbours = [(cell.position - 10), (cell.position + 10), # vertical
+                  (cell.position -  1), (cell.position +  1), # horizontal
+                  (cell.position - 11), (cell.position + 11), # left diagonal
+                  (cell.position -  9), (cell.position +  9)] # right diagonal
     neighbours
   end
 
-  def get_live_neighbours(cell_position)
-    neighbours = get_neighbours(cell_position)
+  def get_live_neighbours(cell)
     live_neighbours = []
+    neighbours = get_neighbours(cell)
 
     neighbours.each do |neighbour_cell|
       if neighbour_cell.is_alive?
         live_neighbours << neighbour_cell
       end
     end
+
     live_neighbours
   end
 
-  def set_cell_status(cell_position)
-    current_cell = @grid[cell_position]
-    live_neighbours = get_live_neighbours(cell_position)
+  def set_cell_status(cell)
+    live_neighbours = get_live_neighbours(cell)
 
-    if current_cell.is_alive?
+    if cell.is_alive?
       if live_neighbours.count < 2
-        current_cell.switch_status
+        cell.switch_status
       end
     end
 
