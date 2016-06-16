@@ -20,7 +20,6 @@ class World
         cell.switch_status
       end
     end
-
   end
 
   def set_initial_live_cells(position_list)
@@ -54,12 +53,10 @@ class World
   end
 
   def get_neighbour_positions(cell)
-
     [(cell.position - 10), (cell.position + 10), # vertical
      (cell.position -  1), (cell.position +  1), # horizontal
      (cell.position - 11), (cell.position + 11), # left diagonal
      (cell.position -  9), (cell.position +  9)] # right diagonal
-
   end
 
 end
