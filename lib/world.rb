@@ -31,6 +31,16 @@ class World
 
   private
 
+  def create_cells
+    cells = []
+    position = 0
+    100.times do
+      cells << Cell.new(position)
+      position = position + 1
+    end
+    cells
+  end
+
   def get_live_neighbours(cell)
     live_neighbours = []
     neighbour_positions = get_neighbour_positions(cell)
@@ -45,21 +55,11 @@ class World
 
   def get_neighbour_positions(cell)
 
-    neighbour_positions = [(cell.position - 10), (cell.position + 10), # vertical
-                           (cell.position -  1), (cell.position +  1), # horizontal
-                           (cell.position - 11), (cell.position + 11), # left diagonal
-                           (cell.position -  9), (cell.position +  9)] # right diagonal
-    neighbour_positions
-  end
+    [(cell.position - 10), (cell.position + 10), # vertical
+     (cell.position -  1), (cell.position +  1), # horizontal
+     (cell.position - 11), (cell.position + 11), # left diagonal
+     (cell.position -  9), (cell.position +  9)] # right diagonal
 
-  def create_cells
-    cells = []
-    position = 0
-    100.times do
-      cells << Cell.new(position)
-      position = position + 1
-    end
-    cells
   end
 
 end
