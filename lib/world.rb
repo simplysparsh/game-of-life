@@ -55,18 +55,29 @@ class World
      (cell.position -  9), (cell.position +  9)] # right diagonal
   end
 
+  def handle_live_cell(cell, live_neighbours)
+    if rule_one_applies?(live_neighbours) || rule_two_applies?(live_neighbours)
+      cell.switch_status
+    end
+  end
 
   def handle_dead_cell(cell, live_neighbours)
-    if live_neighbours.count == 3
+    if rule_three_applies?(live_neighbours)
       cell.switch_status
     end
   end
 
-  def handle_live_cell(cell, live_neighbours)
-    if live_neighbours.count < 2 || live_neighbours.count > 3
-      cell.switch_status
-    end
+  def rule_one_applies?(live_neighbours)
+    live_neighbours.count < 2
   end
 
+  def rule_two_applies?(live_neighbours)
+    live_neighbours.count > 3
+  end
+
+  def rule_three_applies?(live_neighbours)
+    live_neighbours.count == 3
+  end
+  
 end
 
