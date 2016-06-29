@@ -12,13 +12,9 @@ class World
     live_neighbours = get_live_neighbours(cell)
 
     if cell.is_alive?
-      if live_neighbours.count < 2 || live_neighbours.count > 3
-        cell.switch_status
-      end
+      handle_live_cell(cell, live_neighbours)
     else
-      if live_neighbours.count == 3
-        cell.switch_status
-      end
+      handle_dead_cell(cell, live_neighbours)
     end
   end
 
@@ -57,6 +53,19 @@ class World
      (cell.position -  1), (cell.position +  1), # horizontal
      (cell.position - 11), (cell.position + 11), # left diagonal
      (cell.position -  9), (cell.position +  9)] # right diagonal
+  end
+
+
+  def handle_dead_cell(cell, live_neighbours)
+    if live_neighbours.count == 3
+      cell.switch_status
+    end
+  end
+
+  def handle_live_cell(cell, live_neighbours)
+    if live_neighbours.count < 2 || live_neighbours.count > 3
+      cell.switch_status
+    end
   end
 
 end
