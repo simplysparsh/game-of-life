@@ -6,13 +6,13 @@ class Cell
     @status = status
     @position = set_position(position)
   end
+  
+  def kill
+    @status = :dead
+  end
 
-  def switch_status
-    if @status == :dead
-      @status = :alive
-    else
-      @status = :dead
-    end
+  def revive
+    @status = :alive
   end
 
   def is_alive?

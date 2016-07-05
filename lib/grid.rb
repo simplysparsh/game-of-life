@@ -10,7 +10,7 @@ class Grid
 
   def set_initial_live_cells(position_list)
     position_list.each do |position|
-      @cells[position].switch_status
+      @cells[position].revive
     end
   end
 

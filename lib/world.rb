@@ -23,13 +23,13 @@ class World
 
   def handle_live_cell(cell, live_neighbours)
     if rule_one_applies?(live_neighbours) || rule_two_applies?(live_neighbours)
-      cell.switch_status
+      cell.kill
     end
   end
 
   def handle_dead_cell(cell, live_neighbours)
     if rule_three_applies?(live_neighbours)
-      cell.switch_status
+      cell.revive
     end
   end
 
