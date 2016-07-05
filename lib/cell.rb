@@ -6,7 +6,11 @@ class Cell
     @status = status
     @position = set_position(position)
   end
-  
+
+  def is_alive?
+    @status == :alive
+  end
+
   def kill
     @status = :dead
   end
@@ -14,12 +18,6 @@ class Cell
   def revive
     @status = :alive
   end
-
-  def is_alive?
-    @status == :alive
-  end
-
-  private
 
   def set_position(position)
     if position.is_a?(NilClass)
