@@ -11,6 +11,10 @@ class Cell
     @status == :alive
   end
 
+  def is_dead?
+    @status == :dead
+  end
+
   def kill
     @status = :dead
   end
@@ -28,6 +32,7 @@ class Cell
       raise 'position should be an integer less than 100'
     end
   end
+
 
 end
 
