@@ -19,15 +19,13 @@ class World
 
   def get_cells_to_update
     cells_to_update = {cells_to_kill:[], cells_to_revive:[]}
-
+    
     @grid.cells.each do |cell|
-
       if cell_should_die?(cell)
         cells_to_update[:cells_to_kill] << cell
       elsif cell_should_live?(cell)
         cells_to_update[:cells_to_revive] << cell
       end
-
     end
     cells_to_update
   end
