@@ -1,10 +1,11 @@
 class Cell
 
-  attr_reader :status, :position
+  attr_reader :status, :position, :x, :y
 
-  def initialize(position, status = :dead)
+  def initialize(x, y, status = :dead)
     @status = status
-    @position = set_position(position)
+    @x = x # x => column
+    @y = y # y => row
   end
 
   def is_alive?
@@ -22,17 +23,6 @@ class Cell
   def revive
     @status = :alive
   end
-
-  def set_position(position)
-    if position.is_a?(NilClass)
-      raise "position can't be nil"
-    elsif position.is_a?(Fixnum) && position < 100
-      return position
-    else
-      raise 'position should be an integer less than 100'
-    end
-  end
-
 
 end
 

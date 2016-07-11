@@ -4,7 +4,7 @@ require 'cell'
 describe 'Cell' do
 
   describe '#is_alive?' do
-    let(:cell) { Cell.new(10, :alive) }
+    let(:cell) { Cell.new(8,8, :alive) }
 
     it 'returns true when the cell is alive' do
       expect(cell.is_alive?).to be(true)
@@ -12,7 +12,7 @@ describe 'Cell' do
   end
 
   describe '#is_dead?' do
-    let(:cell) { Cell.new(10) }
+    let(:cell) { Cell.new(6,7) }
 
     it 'returns true when the cell is alive' do
       expect(cell.is_dead?).to be(true)
@@ -20,7 +20,7 @@ describe 'Cell' do
   end
 
   describe '#revive' do
-    let(:cell) { Cell.new(10) }
+    let(:cell) { Cell.new(8,8) }
 
     it 'changes the cell status to alive' do
       cell.revive
@@ -29,7 +29,7 @@ describe 'Cell' do
   end
 
   describe '#kill' do
-    let(:cell) { Cell.new(10, :alive) }
+    let(:cell) { Cell.new(6,7, :alive) }
 
     it 'changes the cell status to dead' do
       cell.kill

@@ -5,26 +5,30 @@ class World
 
   attr_reader :grid
 
-  def initialize
-    @grid = Grid.new
+  def initialize(grid_size = 10)
+    @grid = Grid.new(grid_size)
   end
 
   def update_world
     cells_to_update = get_cells_to_update
-    kill_cells(cells_to_update[:cells_to_kill])
-    revive_cells(cells_to_update[:cells_to_revive])
+    kill_cells(cells_to_update[:to_kill])
+    revive_cells(cells_to_update[:to_revive])
   end
 
   private
 
   def get_cells_to_update
-    cells_to_update = {cells_to_kill:[], cells_to_revive:[]}
-    
-    @grid.cells.each do |cell|
-      if cell_should_die?(cell)
-        cells_to_update[:cells_to_kill] << cell
-      elsif cell_should_live?(cell)
-        cells_to_update[:cells_to_revive] << cell
+    cells_to_update = {to_kill:[], to_revive:[]}
+
+    @grid.cells.each do |row_cells|
+      row_cells.each do |cell|
+
+        if cell_should_die?(cell)
+          cells_to_update[:to_kill] << cell
+        elsif cell_should_live?(cell)
+          cells_to_update[:to_revive] << cell
+        end
+
       end
     end
     cells_to_update
