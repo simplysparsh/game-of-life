@@ -22,13 +22,11 @@ class World
 
     @grid.cells.each do |row_cells|
       row_cells.each do |cell|
-
         if cell_should_die?(cell)
           cells_to_update[:to_kill] << cell
         elsif cell_should_live?(cell)
           cells_to_update[:to_revive] << cell
         end
-
       end
     end
     cells_to_update
