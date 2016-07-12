@@ -3,7 +3,7 @@ require_relative 'world.rb'
 
 class GameOfLifeWindow < Gosu::Window
 
-  def initialize(width=500, height=500)
+  def initialize(width=600, height=600)
     @width = width
     @height = height
     super width, height, false
@@ -15,7 +15,7 @@ class GameOfLifeWindow < Gosu::Window
     @dead_color = Gosu::Color.new(0xffededed)
 
     # Game
-    @grid_size = 20
+    @grid_size = 25
     @col_width = width / @grid_size
     @row_height = height / @grid_size
 
@@ -39,9 +39,9 @@ class GameOfLifeWindow < Gosu::Window
         x_start = cell.x * @col_width
         y_start = cell.y * @row_height
         if cell.is_alive?
-          draw_alive_cell(x_start, y_start)
+          draw_cell(x_start, y_start, @alive_color)
         else
-          draw_dead_cell(x_start, y_start)
+          draw_cell(x_start, y_start, @dead_color)
         end
       end
     end
@@ -66,21 +66,14 @@ class GameOfLifeWindow < Gosu::Window
               0, height, @background_color)
   end
 
-  def draw_alive_cell(x_start, y_start)
-    draw_quad(x_start, y_start, @alive_color,
-              x_start+(@col_width-1), y_start, @alive_color,
-              x_start+(@col_width-1), y_start+(@row_height-1), @alive_color,
-              x_start, y_start+(@row_height-1), @alive_color)
-  end
-
-  def draw_dead_cell(x_start, y_start)
-    draw_quad(x_start, y_start, @dead_color,
-              x_start+(@col_width-1), y_start, @dead_color,
-              x_start+(@col_width-1), y_start+(@row_height-1), @dead_color,
-              x_start, y_start+(@row_height-1), @dead_color)
+  def draw_cell(x_start, y_start, color)
+    draw_quad(x_start, y_start, color,
+              x_start+(@col_width-1), y_start, color,
+              x_start+(@col_width-1), y_start+(@row_height-1), color,
+              x_start, y_start+(@row_height-1), color)
   end
 
 end
 
-# This Gosu GUI implementation is taken from:
-# www.github.com/derekbarber/game_of_life/blob/master/gosu.rb
+# This Gosu GUI implementation is taken
+# from Derek Barber : http://bit.ly/29zq5yA
