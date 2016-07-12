@@ -29,6 +29,16 @@ class Grid
     live_neighbours
   end
 
+  def randomly_populate
+    @cells.each do |row_cells|
+      row_cells.each do |cell|
+        action = [:kill, :revive].sample
+        cell.kill if action == :kill
+        cell.revive if action == :revive
+      end
+    end
+  end
+
   private
 
   def create_cells(grid_size)
@@ -46,45 +56,29 @@ class Grid
   def possible_neighbours(cell)
     neighbours = []
 
-    # It detects a neighbour to the North
-    if cell.y > 0
-      neighbours << cells[cell.y - 1][cell.x]
-    end
+    # North
+    neighbours << cells[cell.y - 1][cell.x] if cell.y > 0
 
-    # It detects a neighbour to the North-East
-    if cell.y > 0 && cell.x < (@grid_size - 1)
-      neighbours << cells[cell.y - 1][cell.x + 1]
-    end
+    # South
+    neighbours << cells[cell.y + 1][cell.x] if cell.y < (@grid_size - 1)
 
-    # It detects a neighbour to the North-West
-    if cell.x > 0 && cell.y > 0
-      neighbours << cells[cell.y - 1][cell.x - 1]
-    end
+    # East
+    neighbours << cells[cell.y][cell.x + 1] if cell.x < (@grid_size - 1)
 
-    # It detects a neighbour to the East
-    if cell.x < (@grid_size - 1)
-      neighbours << cells[cell.y][cell.x + 1]
-    end
+    # West
+    neighbours << cells[cell.y][cell.x - 1] if cell.x > 0
 
-    # It detects a neighbour to the South-East
-    if cell.x < (@grid_size - 1) && cell.y < (@grid_size - 1)
-      neighbours << cells[cell.y + 1][cell.x + 1]
-    end
+    # North-East
+    neighbours << cells[cell.y - 1][cell.x + 1] if cell.y > 0 && cell.x < (@grid_size - 1)
 
-    # It detects a neighbour to the South
-    if cell.y < (@grid_size - 1)
-      neighbours << cells[cell.y + 1][cell.x]
-    end
+    # North-West
+    neighbours << cells[cell.y - 1][cell.x - 1] if cell.x > 0 && cell.y > 0
 
-    # It detects a neighbour to the South-West
-    if cell.y < (@grid_size - 1) && cell.x > 0
-      neighbours << cells[cell.y + 1][cell.x - 1]
-    end
+    # South-East
+    neighbours << cells[cell.y + 1][cell.x + 1] if cell.x < (@grid_size - 1) && cell.y < (@grid_size - 1)
 
-    # It detects a neighbour to the West
-    if cell.x > 0
-      neighbours << cells[cell.y][cell.x - 1]
-    end
+    # South-West
+    neighbours << cells[cell.y + 1][cell.x - 1] if cell.y < (@grid_size - 1) && cell.x > 0
 
     neighbours
   end
