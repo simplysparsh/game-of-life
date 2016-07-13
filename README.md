@@ -53,7 +53,7 @@ bundle install
 Once the gems have been installed successfully, you can play the Game of Life by passing the game.rb file to the Ruby interpreter:
 
 ```console
-ruby gosu.rb
+ruby game.rb
 ```
 
 ## Tests
