@@ -2,8 +2,6 @@
 
 The Game of Life is a [cellular automaton](https://en.wikipedia.org/wiki/Cellular_automaton) devised by the British mathematician John Horton Conway.
 
-![Game of Life in Ruby](screenshot.png)
-
 The Game of Life is played on a two-dimensional rectangular grid of cells. Each cell can be either alive or dead. The status of each cell changes each turn of the game - also called a generation - depending on the statuses of that cell's eight neighbors. 
 
 You can find out more about the Game of Life watching this [awesome video](https://www.youtube.com/watch?v=CgOcEZinQ2I&feature=share&list=FLwikA_t8e6TSJW-L-lAHkKw) or reading this [Wikipedia entry](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
@@ -13,6 +11,8 @@ You can find out more about the Game of Life watching this [awesome video](https
 This is a simple implementation of Conway's Game of Life written in the Ruby programming language. It is a part of my apprenticeship at [8th Light, Inc](https://8thlight.com/). 
 
 This project further caught my interest while reading the book [Understanding the Four Rules of Simple Design](https://leanpub.com/4rulesofsimpledesign) by Corey Haines. 
+
+![Game of Life in Ruby](screenshot.png)
 
 ## Rules of the game:
 
