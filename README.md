@@ -40,7 +40,7 @@ The rules of the game are explained clearly in it's [Wikipedia entry](http://en.
 To get started you'll first want to install the `sdl2 library` if its not already installed on your computer:
 
 ```console
-brew install sdl2`
+brew install sdl2
 ```
 
 
