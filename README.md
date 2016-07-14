@@ -41,6 +41,7 @@ The rules of the game are explained clearly in it's [Wikipedia entry](http://en.
 
 To get started you'll first want to install the `sdl2 library` if its not already installed on your computer. If it's already installed, you can skip this step.
 
+Run the following using terminal:
 ```console
 brew install sdl2
 ```
@@ -53,9 +54,12 @@ Note: You need Homebrew package manager to use the above mentioned command. To i
 
 Then install the required Ruby gems which you can do easily using bundler:
 
+1. Install Bundler by using the following command in the terminal.
 ```console
 gem install bundler
 ```
+
+2. Move over to the project directory using `cd` command and run the following:
 ```console
 bundle install
 ```
