@@ -37,21 +37,34 @@ The rules of the game are explained clearly in it's [Wikipedia entry](http://en.
 
 ## Installation & Usage
 
-To get started you'll first want to install the `sdl2 library` if its not already installed on your computer:
+### Installing sdl2 library using Homebrew
+
+To get started you'll first want to install the `sdl2 library` if its not already installed on your computer. If it's already installed, you can skip this step.
 
 ```console
 brew install sdl2
 ```
+Note: You need Homebrew package manager to use the above mentioned command. To install Homebrew, paste the following in Terminal:
 
+```console
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+### Installing Ruby Gems
 
 Then install the required Ruby gems which you can do easily using bundler:
 
 ```console
+gem install bundler
+```
+```console
 bundle install
 ```
+### Running the game
 
 Once the gems have been installed successfully, you can play the Game of Life by passing the game.rb file to the Ruby interpreter:
 
+1. Use the `cd` command to move over to the `lib` folder.
+2. Then use the following command in terminal to run the game:
 ```console
 ruby game.rb
 ```
