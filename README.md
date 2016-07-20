@@ -12,6 +12,8 @@ This is a simple implementation of Conway's Game of Life written in the Ruby pro
 
 This project further caught my interest while reading the book [Understanding the Four Rules of Simple Design](https://leanpub.com/4rulesofsimpledesign) by Corey Haines. 
 
+To know more about my development process and what I learned, [visit my blog](https://rubylearner.wordpress.com/2016/07/19/conways-game-of-life/). 
+
 ![Game of Life in Ruby](screenshot.png)
 
 ## Rules of the game:
