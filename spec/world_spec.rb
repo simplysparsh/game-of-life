@@ -1,5 +1,7 @@
 require 'rspec'
 require 'world.rb'
+require 'grid.rb'
+
 
 describe 'World'  do
 
@@ -39,6 +41,7 @@ describe 'World'  do
       end
     end
 
+
     context 'when the cell is dead' do
 
       it 'sets status to alive if it has exactly three live neighbours'do
@@ -49,6 +52,26 @@ describe 'World'  do
         expect(grid.cell(0,1).status).to eq(:alive)
       end
     end
+
+    context 'when a world has a particular cell distribution on the grid' do
+      let(:expected_world) {World.new(10)}
+
+      it 'updates the world to a newer cell distribution as per the game rules' do
+        world.set_initial_live_cells(
+            [world.grid.cell(1,2), world.grid.cell(2,2), world.grid.cell(3,2),
+             world.grid.cell(0,9), world.grid.cell(1,8), world.grid.cell(2,7),
+             world.grid.cell(9,9), world.grid.cell(8,9), world.grid.cell(8,8), world.grid.cell(9,8)])
+        expected_world.set_initial_live_cells([expected_world.grid.cell(1,8),
+                                               expected_world.grid.cell(2,2), expected_world.grid.cell(2,1), expected_world.grid.cell(2,3),
+                                               expected_world.grid.cell(9,9), expected_world.grid.cell(8,9), expected_world.grid.cell(8,8), expected_world.grid.cell(9,8)])
+
+        world.update_world
+
+        expect(world.is_equal?(expected_world)).to be(true)
+      end
+
+    end
+
 
   end
 
