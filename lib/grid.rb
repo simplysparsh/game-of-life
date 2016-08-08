@@ -57,28 +57,44 @@ class Grid
     neighbours = []
 
     # North
-    neighbours << cells[cell.y - 1][cell.x] if cell.y > 0
+    if cell.y > 0
+      neighbours << cells[cell.y - 1][cell.x]
+    end
 
     # South
-    neighbours << cells[cell.y + 1][cell.x] if cell.y < (@grid_size - 1)
+    if cell.y < (@grid_size - 1)
+      neighbours << cells[cell.y + 1][cell.x]
+    end
 
     # East
-    neighbours << cells[cell.y][cell.x + 1] if cell.x < (@grid_size - 1)
+    if cell.x < (@grid_size - 1)
+      neighbours << cells[cell.y][cell.x + 1]
+    end
 
     # West
-    neighbours << cells[cell.y][cell.x - 1] if cell.x > 0
+    if cell.x > 0
+      neighbours << cells[cell.y][cell.x - 1]
+    end
 
     # North-East
-    neighbours << cells[cell.y - 1][cell.x + 1] if cell.y > 0 && cell.x < (@grid_size - 1)
+    if cell.y > 0 && cell.x < (@grid_size - 1)
+      neighbours << cells[cell.y - 1][cell.x + 1]
+    end
 
     # North-West
-    neighbours << cells[cell.y - 1][cell.x - 1] if cell.x > 0 && cell.y > 0
+    if cell.x > 0 && cell.y > 0
+      neighbours << cells[cell.y - 1][cell.x - 1]
+    end
 
     # South-East
-    neighbours << cells[cell.y + 1][cell.x + 1] if cell.x < (@grid_size - 1) && cell.y < (@grid_size - 1)
+    if cell.x < (@grid_size - 1) && cell.y < (@grid_size - 1)
+      neighbours << cells[cell.y + 1][cell.x + 1]
+    end
 
     # South-West
-    neighbours << cells[cell.y + 1][cell.x - 1] if cell.y < (@grid_size - 1) && cell.x > 0
+    if cell.y < (@grid_size - 1) && cell.x > 0
+      neighbours << cells[cell.y + 1][cell.x - 1]
+    end
 
     neighbours
   end
