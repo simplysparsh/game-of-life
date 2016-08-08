@@ -66,7 +66,6 @@ describe 'World'  do
              updated_grid.cell(9,9), updated_grid.cell(8,9), updated_grid.cell(8,8), updated_grid.cell(9,8)])
 
         world.update_world
-
         expect(world.is_equal?(updated_world)).to be(true)
       end
 
