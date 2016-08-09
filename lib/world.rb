@@ -69,7 +69,7 @@ class World
 
   def rule_four_applies?(cell)
     live_neighbours = @grid.get_live_neighbours(cell)
-    cell.is_alive? && ([2, 3].include? live_neighbours)
+    cell.is_alive? && ([2, 3].include? live_neighbours.count)
   end
 
 end
