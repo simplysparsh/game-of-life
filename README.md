@@ -6,6 +6,8 @@ The Game of Life is played on a two-dimensional rectangular grid of cells. Each 
 
 You can find out more about the Game of Life watching this [awesome video](https://www.youtube.com/watch?v=CgOcEZinQ2I&feature=share&list=FLwikA_t8e6TSJW-L-lAHkKw) or reading this [Wikipedia entry](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
+See it in action on Youtube by clicking [here](https://youtu.be/5zPUuFwFSTA). 
+
 ## Development
 
 This is a simple implementation of Conway's Game of Life written in the Ruby programming language. It is a part of my apprenticeship at [8th Light, Inc](https://8thlight.com/). 
