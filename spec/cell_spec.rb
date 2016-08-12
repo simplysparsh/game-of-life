@@ -3,37 +3,21 @@ require 'cell'
 
 describe 'Cell' do
 
-  describe '#is_alive?' do
-    let(:cell) { Cell.new(8,8, :alive) }
+  cell_1 = Cell.new(4,5)
+  cell_2 = Cell.new(8,9)
 
-    it 'returns true when the cell is alive' do
-      expect(cell.is_alive?).to be(true)
-    end
+  it 'has x coordinate' do
+    expect(cell_1.x).to eq(4)
   end
 
-  describe '#is_dead?' do
-    let(:cell) { Cell.new(6,7) }
-
-    it 'returns true when the cell is alive' do
-      expect(cell.is_dead?).to be(true)
-    end
+  it 'has y coordinate' do
+    expect(cell_1.y).to eq(5)
   end
 
-  describe '#revive' do
-    let(:cell) { Cell.new(8,8) }
-
-    it 'changes the cell status to alive' do
-      cell.revive
-      expect(cell.status).to eq(:alive)
-    end
-  end
-
-  describe '#kill' do
-    let(:cell) { Cell.new(6,7, :alive) }
-
-    it 'changes the cell status to dead' do
-      cell.kill
-      expect(cell.status).to eq(:dead)
+  describe '#is_equal?' do
+    it 'compares the cell for equality' do
+      expect(cell_2.is_equal?(cell_1)).to be false
+      expect(cell_1.is_equal?(cell_1)).to be true
     end
   end
 
