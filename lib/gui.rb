@@ -34,18 +34,16 @@ class GameOfLifeWindow < Gosu::Window
   def draw
     draw_background
 
-    @world.grid.cells.each do |row_cells|
-      row_cells.each do |cell|
-        x_start = cell.x * @col_width
-        y_start = cell.y * @row_height
-        if cell.is_alive?
-          draw_cell(x_start, y_start, @alive_color)
-        else
-          draw_cell(x_start, y_start, @dead_color)
-        end
+    @world.grid.cell_positions.each do |position|
+      x_start = position[:x] * @col_width
+      y_start = position[:y] * @row_height
+
+      if @world.grid.cell_exists?(position)
+        draw_cell(x_start, y_start, @alive_color)
+      else
+        draw_cell(x_start, y_start, @dead_color)
       end
     end
-
   end
 
   def button_down(id)
