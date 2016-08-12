@@ -1,27 +1,14 @@
 class Cell
 
-  attr_reader :status, :position, :x, :y
+  attr_reader :x, :y
 
-  def initialize(x, y, status = :dead)
-    @status = status
+  def initialize(x, y)
     @x = x # x => column
     @y = y # y => row
   end
 
-  def is_alive?
-    @status == :alive
-  end
-
-  def is_dead?
-    @status == :dead
-  end
-
-  def kill
-    @status = :dead
-  end
-
-  def revive
-    @status = :alive
+  def is_equal?(cell)
+    @x == cell.x && @y == cell.y
   end
 
 end
