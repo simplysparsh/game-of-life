@@ -1,0 +1,16 @@
+1. For each cell:
+	- count the total number of live neighbors 
+	- check for game rules for that cell
+	- if it is going to be dead, add in array ‘next_round_dead_cell’
+	- if it is going to be dead, add in array ‘next_round_live_cell’
+	- kill each cell from array ‘next_round_dead_cell’ 
+	- revive each cell from array ‘next_round_live_cell’
+Alliter
+
+-get all live cells 
+-get each of their dead neighbors in an array
+-check for the rules of games for these dead neighbors and save the ones to be given life in next round in an array
+- check for the rules of game for the live cells and proceed like previous one.
+
+Benefits - we are not counting neighbors for each cell. Simply checking all cells if they are alive. And them counting neighbors of live cells and the dead cells around those live cells.
+
